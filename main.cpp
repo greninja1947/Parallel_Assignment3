@@ -144,7 +144,10 @@ int main(int argc, char* argv[]){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    
+    MPI_Barrier(MPI_COMM_WORLD);  // everyone starts together
+    double start = MPI_Wtime();
+
+
     string infile = argv[1];
     string outfile = argv[2];
 
@@ -158,10 +161,12 @@ int main(int argc, char* argv[]){
         candidates.push_back(i);
     }
     findClique(candidates,0,0);
-    writeOutput(outfile);
 
+    MPI_Barrier(MPI_COMM_WORLD);  // wait for slowest process
     if(rank == 0){
         writeOutput(argv[2]);
+        double end = MPI_Wtime();
+        cout << "Time: " << (end - start) << " seconds" << endl;
     }
     
     MPI_Finalize();
