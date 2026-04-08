@@ -158,7 +158,7 @@ int main(int argc, char* argv[]){
 
     auto end = chrono::high_resolution_clock::now();
     double time = chrono::duration<double>(end - start).count();
-    cout << "Time: " << time << " seconds" << endl;
+    cout << "Seq Time: " << time << " seconds" << endl;
     
     return 0;
 }

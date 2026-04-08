@@ -144,7 +144,7 @@ int main(int argc, char* argv[]){
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    MPI_Barrier(MPI_COMM_WORLD);  // everyone starts together
+    MPI_Barrier(MPI_COMM_WORLD);  
     double start = MPI_Wtime();
 
 
@@ -155,18 +155,46 @@ int main(int argc, char* argv[]){
 
     readInput(infile,graph);
 
-    /// using set for faster check of neighbour try vectors also 
-    vector<int>candidates;
     for(int i = 0;i<graph.N;i++){
-        candidates.push_back(i);
+        if(i%size == rank){
+            vector<int>candidates;
+            for(int nbr : graph.adjacency_list[i]){
+                candidates.push_back(nbr);
+            }
+            currentClique.push_back(i);
+            findClique(candidates,graph.profit[i],graph.cost[i]);
+            currentClique.pop_back();
+        }
     }
-    findClique(candidates,0,0);
 
-    MPI_Barrier(MPI_COMM_WORLD);  // wait for slowest process
+    MPI_Barrier(MPI_COMM_WORLD);  
+    int globalMax;
+    MPI_Allreduce(&maxProfit, &globalMax, 1, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
+
+    int winner;
+    int myRank = (maxProfit == globalMax) ? rank : size;
+    MPI_Allreduce(&myRank, &winner, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
+
+   if(winner != 0){
+        if(rank == winner){
+            int cliqueSize = bestClique.size();
+            MPI_Send(&cliqueSize, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+            MPI_Send(bestClique.data(), cliqueSize, MPI_INT, 0, 1, MPI_COMM_WORLD);
+        }
+        if(rank == 0){
+            int cliqueSize;
+            MPI_Status status;
+            MPI_Recv(&cliqueSize, 1, MPI_INT, winner, 0, MPI_COMM_WORLD, &status);
+            bestClique.resize(cliqueSize);
+            MPI_Recv(bestClique.data(), cliqueSize, MPI_INT, winner, 1, MPI_COMM_WORLD, &status);
+            maxProfit = globalMax;
+        }
+    }
+
     if(rank == 0){
-        writeOutput(argv[2]);
+        writeOutput(outfile);
         double end = MPI_Wtime();
-        cout << "Time: " << (end - start) << " seconds" << endl;
+        cout << "MPI Time: " << (end - start) << " seconds" << endl;
     }
     
     MPI_Finalize();
