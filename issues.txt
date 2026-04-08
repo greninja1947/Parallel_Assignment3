@@ -1,43 +1,92 @@
-  Correctness Analysis                                      
-                      
-  The implementation is correct per the PDF. A few things worth noting:
-                                                                                                    
-  structureBound — correct. Since candidates are sorted in decreasing profit order, the first vertex
-   assigned to each color class is always the highest-profit one in that class. So adding profit    
-  only when a new class is created correctly gives the sum of max-profit-per-class.                 
-                                                            
-  resourceBound — correct. Using ceil gives a slightly looser but still valid upper bound (ceil ≥   
-  fractional, so no valid solution gets pruned).
-                                                                                                    
-  findClique — matches the PDF algorithm exactly. Candidate intersection cand ← candidates ∩        
-  Neighbors(v) is computed from the remaining candidates after popping v, which is correct.
-                                                                                                    
-  One edge case (minor): single-vertex cliques {i} are never recorded. The outer loop does          
-  findClique(neighbors where nbr > i, profit[i], cost[i]) — if candidates is empty or the while loop
-   finds nothing, the profit of {i} alone is never saved. For a dense graph this is irrelevant      
-  (every vertex has many high-index neighbors), but it's technically a gap.
+Great question. Let me break down the sync mechanism first, then explain the overhead.
 
-  ---
-  Bottleneck: Load Imbalance
-                                                                                                    
-  Rank 7 is the critical path at 23.26s compute, while rank 8 (the fastest) does only 14.32s.
-                                                                                                    
-  The RMA cleanup time is a red herring — it's not actual cleanup work, it's waiting.               
-  MPI_Win_unlock_all is collective and blocks until all ranks exit the RMA epoch. So fast ranks sit 
-  there idle for up to 8.9s waiting for rank 7.                                                     
+  How syncMaxProfit works
+
+  static void syncMaxProfit(MPI_Win win){
+      int globalVal;
+      MPI_Fetch_and_op(&maxProfit, &globalVal, MPI_INT, 0, 0, MPI_MAX, win);                    
+      MPI_Win_flush(0, win);
+      if(globalVal > maxProfit) maxProfit = globalVal;                                          
+  }                                                                                             
+  
+  The window setup                                                                              
                                                             
-  Root cause — cold start problem: The first vertex each rank processes starts with maxProfit ≈ 0,  
-  so the bounds prune almost nothing and the search tree is enormous. Every rank's slowest vertex is
-   its very first one:                                                                              
+  MPI_Win_allocate(sizeof(int), ...);   // rank 0 exposes one int to everyone
+  *win_buf = 0;                                                                                 
+  MPI_Win_lock_all(0, win);             // passive target epoch — open for entire run           
+                                                                                                
+  MPI_Win_lock_all with flag 0 opens a passive target epoch. This means rank 0's memory is      
+  accessible by any rank at any time, without rank 0 doing anything — rank 0 doesn't call any   
+  MPI function to "receive" these operations. This is what makes it truly one-sided.            
                                                             
-  - Rank 7: v=7 takes 11.77s (4.1M calls), profit 0→554                                             
-  - Rank 5: v=5 takes 10.35s
-  - Rank 0: v=0 takes ~10.8s                                                                        
-                                                                                                    
-  After that first vertex sets a good global bound (~550-650), every subsequent vertex gets pruned  
-  aggressively and takes 1-3s at most. The entire parallel run is essentially dominated by these    
-  "cold" first-vertex searches.                                                                     
+  What MPI_Fetch_and_op does                                                                    
+  
+  It's a single atomic operation at rank 0's memory. Conceptually:                              
                                                             
-  The round-robin distribution (i = rank, rank+size, ...) is the problem — it forces each rank to   
-  tackle one of the hardest low-index vertices with no prior global bound. There's no work stealing
-  or rebalancing. 
+  // Happens atomically at rank 0's window:                                                     
+  globalVal    = win_buf[0]                  // fetch old value
+  win_buf[0]   = max(win_buf[0], maxProfit)  // apply MPI_MAX op                                
+  // return globalVal to caller                                                                 
+                                                                                                
+  "Atomic" means no two ranks can interleave between the fetch and the update. If ranks A and B 
+  call simultaneously:                                      
+  - One goes first: say A reads 500, writes 600                                                 
+  - Then B: reads 600, writes max(600, 550)=600                                                 
+  - B sees globalVal=600 > maxProfit_B=550 → B updates its local maxProfit=600
+                                                                                                
+  No rank ever blocks waiting for another. Everyone fires their operation independently.        
+                                                                                                
+  What MPI_Win_flush(0, win) does                                                               
+                                                                                                
+  This is not a barrier. It's a one-sided completion guarantee — it says "ensure MY operation   
+  has been delivered to rank 0's memory before I proceed." Rank 0 does nothing. It's purely
+  local completion, like a memory fence.                                                        
+                                                            
+  Why it's non-blocking
+
+  Traditional MPI_Allreduce: all ranks must arrive at the same call simultaneously. Rank 7      
+  finishes early? It sits and waits for rank 0 to arrive.
+                                                                                                
+  MPI_Fetch_and_op: rank just fires off an atomic write to rank 0's memory and continues        
+  immediately. No rendezvous. No waiting. Each rank runs at its own pace.
+                                                                                                
+  ---                                                       
+  Why you can't sync after every findClique call
+                                                
+  From the run.log: rank 7 makes 7.2 million findClique calls. Let's cost it out:
+                                                                                                
+  ┌──────────────────────────────────┬───────────────────────────────┬──────────────────────┐   
+  │                                  │    Current (per top-level     │  Every findClique    │   
+  │                                  │            vertex)            │         call         │   
+  ├──────────────────────────────────┼───────────────────────────────┼──────────────────────┤
+  │ Syncs per rank                   │ ~31                           │ ~7,200,000           │
+  ├──────────────────────────────────┼───────────────────────────────┼──────────────────────┤   
+  │ Time per sync (typical           │ ~2–5 μs                       │ ~2–5 μs              │   
+  │ RMA+flush)                       │                               │                      │   
+  ├──────────────────────────────────┼───────────────────────────────┼──────────────────────┤   
+  │ Total sync overhead              │ ~0.15 ms                      │ 14–36 seconds        │
+  └──────────────────────────────────┴───────────────────────────────┴──────────────────────┘   
+  
+  Even though each individual call is non-blocking and cheap, at 7 million calls the cumulative 
+  overhead exceeds the entire compute time. Additionally:   
+                                                                                                
+  1. Hot-spot contention: all 8+ ranks firing atomic ops at the same memory location — these get
+   serialized at rank 0's memory controller. At high frequency this creates queuing delays.
+  2. MPI_Win_flush latency: even locally, flushing 7M times means 7M round-trip acknowledgments 
+  from rank 0. On an HPC network this is significant.                                           
+  
+  ---                                                                                           
+  The right answer: periodic sync every K calls             
+                                                                                                
+  void findClique(vector<int>candidates, int currProfit, int currWeight){
+      findCliqueCallCount++;                                                                    
+      if((findCliqueCallCount & 0xFFFF) == 0)  // every 65536 calls
+          syncMaxProfit(win);                                                                   
+      ...                                                   
+                                                                                                
+  With K=65536: ~110 syncs during rank 7's 7.2M calls. Overhead: ~0.5 ms. But rank 7 would pick 
+  up rank 4's profit=650 at the ~2M call mark (~6s into processing v=7), and prune the remaining
+   2M calls aggressively. That's potentially 5+ seconds saved.                                  
+                                                            
+  The win handle would need to be passed into findClique or made global (since it's used in     
+  syncMaxProfit).
