@@ -1,2 +1,2 @@
 Test Case               Seq                 MPI
-Input.txt               123.36
+Input.txt               162.7s              12.03s

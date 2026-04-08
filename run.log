@@ -1,0 +1,971 @@
+make: Nothing to be done for `all'.
+Seq Time: 162.872 seconds
+
+=== Rank 0 ===
+  I/O time        : 0.0113145 s
+  Win setup time  : 0.0158426 s
+  Compute time    : 10.3251 s
+  RMA cleanup time: 1.68543 s
+
+=== Rank 1 ===
+  I/O time        : 0.0111545 s
+  Win setup time  : 0.0159781 s
+  Compute time    : 6.54736 s
+  RMA cleanup time: 5.4632 s
+  Barrier wait    : 4.2994e-05 s
+  Comm time       : 0.000109106 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 32
+  findClique calls: 2172407
+  localMaxProfit  : 569
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=1  deg=291  time=6.54622s  calls=2172407  profit 0->569
+    v=17  deg=276  time=1.342e-05s  calls=0  profit 650->650
+    v=33  deg=305  time=5.32e-06s  calls=0  profit 650->650
+    v=49  deg=306  time=3.969e-06s  calls=0  profit 650->650
+    v=193  deg=293  time=3.337e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=1  profit=47  at 0.00125559s
+    v=1  profit=58  at 0.00135624s
+    v=1  profit=65  at 0.00140352s
+    v=1  profit=76  at 0.0014274s
+    v=1  profit=128  at 0.00144044s
+    v=1  profit=135  at 0.00144716s
+    v=1  profit=142  at 0.00145067s
+    v=1  profit=195  at 0.0014527s
+    v=1  profit=220  at 0.00146931s
+    v=1  profit=248  at 0.00154588s
+    v=1  profit=263  at 0.00171551s
+    v=1  profit=273  at 0.0017791s
+    v=1  profit=275  at 0.00178745s
+    v=1  profit=284  at 0.00178801s
+    v=1  profit=303  at 0.00192683s
+    v=1  profit=306  at 0.00197087s
+    v=1  profit=312  at 0.00212833s
+    v=1  profit=321  at 0.00213021s
+    v=1  profit=332  at 0.00217456s
+    v=1  profit=334  at 0.00362317s
+    v=1  profit=335  at 0.00362753s
+    v=1  profit=348  at 0.00440832s
+    v=1  profit=351  at 0.00702408s
+    v=1  profit=370  at 0.00708698s
+    v=1  profit=375  at 0.0169509s
+    v=1  profit=378  at 0.0172403s
+    v=1  profit=380  at 0.0172797s
+    v=1  profit=394  at 0.0173499s
+    v=1  profit=395  at 0.0181048s
+    v=1  profit=398  at 0.0181091s
+    v=1  profit=401  at 0.018222s
+    v=1  profit=402  at 0.0182928s
+    v=1  profit=406  at 0.0440373s
+    v=1  profit=416  at 0.0472889s
+    v=1  profit=423  at 0.0751333s
+    v=1  profit=428  at 0.125604s
+    v=1  profit=438  at 0.140064s
+    v=1  profit=439  at 0.146615s
+    v=1  profit=447  at 0.18261s
+    v=1  profit=454  at 0.193156s
+    v=1  profit=456  at 0.195594s
+    v=1  profit=478  at 0.196482s
+    v=1  profit=479  at 0.311834s
+    v=1  profit=495  at 0.318233s
+    v=1  profit=501  at 0.333514s
+    v=1  profit=537  at 0.341703s
+    v=1  profit=555  at 5.75804s
+    v=1  profit=569  at 5.81708s
+
+=== Rank 2 ===
+  I/O time        : 0.0124036 s
+  Win setup time  : 0.0147058 s
+  Compute time    : 6.39557 s
+  RMA cleanup time: 5.61501 s
+  Barrier wait    : 4.8894e-05 s
+  Comm time       : 0.000116461 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 32
+  findClique calls: 2118664
+  localMaxProfit  : 561
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=2  deg=295  time=6.39441s  calls=2118664  profit 0->561
+    v=18  deg=289  time=1.3064e-05s  calls=0  profit 576->576
+    v=34  deg=310  time=4.173e-06s  calls=0  profit 576->576
+    v=242  deg=299  time=3.241e-06s  calls=0  profit 576->576
+    v=130  deg=301  time=3.144e-06s  calls=0  profit 576->576
+  Profit improvement history:
+    v=2  profit=67  at 0.00124488s
+    v=2  profit=105  at 0.0013295s
+    v=2  profit=128  at 0.0013683s
+    v=2  profit=134  at 0.0013848s
+    v=2  profit=190  at 0.00139313s
+    v=2  profit=241  at 0.00139703s
+    v=2  profit=286  at 0.00139928s
+    v=2  profit=312  at 0.00140061s
+    v=2  profit=337  at 0.00144661s
+    v=2  profit=362  at 0.00145053s
+    v=2  profit=391  at 0.00145102s
+    v=2  profit=403  at 0.00149638s
+    v=2  profit=411  at 0.00195268s
+    v=2  profit=415  at 0.00198533s
+    v=2  profit=422  at 0.00199749s
+    v=2  profit=430  at 0.00524342s
+    v=2  profit=446  at 0.00712211s
+    v=2  profit=455  at 0.007344s
+    v=2  profit=462  at 0.00795932s
+    v=2  profit=477  at 0.0101249s
+    v=2  profit=488  at 0.0577609s
+    v=2  profit=493  at 0.123417s
+    v=2  profit=499  at 0.136568s
+    v=2  profit=506  at 0.14069s
+    v=2  profit=509  at 0.143954s
+    v=2  profit=516  at 0.14397s
+    v=2  profit=518  at 0.143974s
+    v=2  profit=532  at 0.14451s
+    v=2  profit=545  at 0.145781s
+    v=2  profit=546  at 0.156326s
+    v=2  profit=550  at 0.15634s
+    v=2  profit=561  at 0.1564s
+  Barrier wait    : 3.2674e-05 s
+  Comm time       : 0.000186774 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 32
+  findClique calls: 3666693
+  localMaxProfit  : 585
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=0  deg=308  time=10.324s  calls=3666693  profit 0->585
+    v=16  deg=288  time=6.747e-06s  calls=0  profit 650->650
+    v=32  deg=296  time=4.096e-06s  calls=0  profit 650->650
+    v=96  deg=316  time=3.694e-06s  calls=0  profit 650->650
+    v=128  deg=288  time=3.497e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=0  profit=49  at 0.00121452s
+    v=0  profit=55  at 0.00131196s
+    v=0  profit=111  at 0.00136017s
+    v=0  profit=117  at 0.00138439s
+    v=0  profit=168  at 0.00139801s
+    v=0  profit=191  at 0.00140492s
+    v=0  profit=236  at 0.00140796s
+    v=0  profit=285  at 0.0014096s
+    v=0  profit=304  at 0.00141085s
+    v=0  profit=312  at 0.00142505s
+    v=0  profit=330  at 0.00142555s
+    v=0  profit=356  at 0.00144489s
+    v=0  profit=363  at 0.00144886s
+    v=0  profit=367  at 0.0015199s
+    v=0  profit=371  at 0.00160793s
+    v=0  profit=374  at 0.00163563s
+    v=0  profit=402  at 0.0016709s
+    v=0  profit=407  at 0.0017872s
+    v=0  profit=410  at 0.00179908s
+    v=0  profit=445  at 0.00179982s
+    v=0  profit=453  at 0.00320625s
+    v=0  profit=473  at 0.00364168s
+    v=0  profit=496  at 0.00401154s
+    v=0  profit=497  at 0.0176236s
+    v=0  profit=505  at 0.0176306s
+    v=0  profit=518  at 0.062996s
+    v=0  profit=522  at 0.0883617s
+    v=0  profit=526  at 1.37929s
+    v=0  profit=544  at 2.25596s
+    v=0  profit=545  at 2.3905s
+    v=0  profit=547  at 2.40864s
+    v=0  profit=557  at 2.41878s
+    v=0  profit=564  at 2.60489s
+    v=0  profit=570  at 2.65019s
+    v=0  profit=571  at 2.67018s
+    v=0  profit=580  at 2.69304s
+    v=0  profit=585  at 7.8919s
+
+=== Rank 3 ===
+  I/O time        : 0.0240831 s
+  Win setup time  : 0.00307618 s
+  Compute time    : 7.07675 s
+  RMA cleanup time: 4.93374 s
+  Barrier wait    : 8.2529e-05 s
+  Comm time       : 0.00011267 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 32
+  findClique calls: 2245501
+  localMaxProfit  : 571
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=3  deg=310  time=7.07563s  calls=2245501  profit 0->571
+    v=19  deg=297  time=5.637e-06s  calls=0  profit 650->650
+    v=35  deg=297  time=3.499e-06s  calls=0  profit 650->650
+    v=115  deg=310  time=3.465e-06s  calls=0  profit 650->650
+    v=195  deg=284  time=3.222e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=3  profit=41  at 0.001194s
+    v=3  profit=52  at 0.00128745s
+    v=3  profit=58  at 0.00132971s
+    v=3  profit=114  at 0.00135281s
+    v=3  profit=125  at 0.00136484s
+    v=3  profit=131  at 0.00137122s
+    v=3  profit=151  at 0.00137468s
+    v=3  profit=181  at 0.00137708s
+    v=3  profit=191  at 0.00137938s
+    v=3  profit=227  at 0.00138086s
+    v=3  profit=247  at 0.00139547s
+    v=3  profit=255  at 0.00139781s
+    v=3  profit=259  at 0.0014227s
+    v=3  profit=263  at 0.00142714s
+    v=3  profit=271  at 0.00143243s
+    v=3  profit=275  at 0.00145878s
+    v=3  profit=280  at 0.00146231s
+    v=3  profit=292  at 0.00148198s
+    v=3  profit=300  at 0.00148523s
+    v=3  profit=322  at 0.00152226s
+    v=3  profit=323  at 0.0015232s
+    v=3  profit=331  at 0.001535s
+    v=3  profit=344  at 0.00162902s
+    v=3  profit=351  at 0.00188838s
+    v=3  profit=353  at 0.00201499s
+    v=3  profit=356  at 0.00218854s
+    v=3  profit=367  at 0.0022091s
+    v=3  profit=372  at 0.00511033s
+    v=3  profit=373  at 0.00511167s
+    v=3  profit=380  at 0.00610035s
+    v=3  profit=389  at 0.00611672s
+    v=3  profit=394  at 0.0067184s
+    v=3  profit=403  at 0.00710983s
+    v=3  profit=408  at 0.0344294s
+    v=3  profit=409  at 0.0355594s
+    v=3  profit=417  at 0.0356712s
+    v=3  profit=422  at 0.0581029s
+    v=3  profit=427  at 0.115192s
+    v=3  profit=431  at 0.115232s
+    v=3  profit=456  at 0.115234s
+    v=3  profit=458  at 0.117553s
+    v=3  profit=468  at 0.11797s
+    v=3  profit=485  at 0.119089s
+    v=3  profit=506  at 0.134773s
+    v=3  profit=520  at 2.06031s
+    v=3  profit=521  at 2.08462s
+    v=3  profit=536  at 2.13032s
+    v=3  profit=551  at 2.31863s
+    v=3  profit=571  at 2.31873s
+
+=== Rank 4 ===
+  I/O time        : 0.023885 s
+  Win setup time  : 0.00328566 s
+  Compute time    : 6.44102 s
+  RMA cleanup time: 5.56949 s
+  Barrier wait    : 6.159e-05 s
+  Comm time       : 0.000116356 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 1971194
+  localMaxProfit  : 650
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=4  deg=309  time=6.43992s  calls=1971194  profit 0->650
+    v=20  deg=303  time=1.4255e-05s  calls=0  profit 650->650
+    v=116  deg=301  time=7.727e-06s  calls=0  profit 650->650
+    v=292  deg=312  time=3.395e-06s  calls=0  profit 650->650
+    v=196  deg=300  time=3.117e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=4  profit=98  at 0.00117949s
+    v=4  profit=136  at 0.001265s
+    v=4  profit=159  at 0.00130598s
+    v=4  profit=166  at 0.00132355s
+    v=4  profit=222  at 0.00133214s
+    v=4  profit=267  at 0.00133795s
+    v=4  profit=293  at 0.00134083s
+    v=4  profit=323  at 0.00134263s
+    v=4  profit=327  at 0.0013439s
+    v=4  profit=379  at 0.00135119s
+    v=4  profit=381  at 0.00140095s
+    v=4  profit=393  at 0.00144742s
+    v=4  profit=429  at 0.00156555s
+    v=4  profit=452  at 0.00157455s
+    v=4  profit=473  at 0.00166168s
+    v=4  profit=474  at 0.00189275s
+    v=4  profit=508  at 0.00378171s
+    v=4  profit=513  at 0.00692596s
+    v=4  profit=514  at 0.00694466s
+    v=4  profit=531  at 0.00694595s
+    v=4  profit=544  at 0.00795218s
+    v=4  profit=545  at 0.00803945s
+    v=4  profit=562  at 0.00804112s
+    v=4  profit=565  at 0.022077s
+    v=4  profit=577  at 0.0222519s
+    v=4  profit=583  at 0.0407195s
+    v=4  profit=584  at 0.0553304s
+    v=4  profit=595  at 0.0553763s
+    v=4  profit=597  at 0.0615014s
+    v=4  profit=603  at 0.0678048s
+    v=4  profit=607  at 0.0682226s
+    v=4  profit=636  at 0.0682307s
+    v=4  profit=647  at 0.0682516s
+    v=4  profit=650  at 5.90511s
+
+=== Rank 5 ===
+  I/O time        : 0.0242593 s
+  Win setup time  : 0.00290552 s
+  Compute time    : 10.3278 s
+  RMA cleanup time: 1.68271 s
+  Barrier wait    : 1.5474e-05 s
+  Comm time       : 0.000108925 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 3596119
+  localMaxProfit  : 557
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=5  deg=308  time=10.3267s  calls=3596119  profit 0->557
+    v=21  deg=279  time=4.739e-06s  calls=0  profit 650->650
+    v=101  deg=304  time=3.548e-06s  calls=0  profit 650->650
+    v=53  deg=308  time=3.111e-06s  calls=0  profit 650->650
+    v=293  deg=287  time=3.051e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=5  profit=47  at 0.00119618s
+    v=5  profit=58  at 0.00129401s
+    v=5  profit=64  at 0.00134048s
+    v=5  profit=120  at 0.00136504s
+    v=5  profit=131  at 0.00137813s
+    v=5  profit=151  at 0.00138492s
+    v=5  profit=196  at 0.00138913s
+    v=5  profit=253  at 0.00139174s
+    v=5  profit=258  at 0.00139721s
+    v=5  profit=277  at 0.00139873s
+    v=5  profit=283  at 0.00140935s
+    v=5  profit=288  at 0.00142875s
+    v=5  profit=324  at 0.00142948s
+    v=5  profit=329  at 0.00154051s
+    v=5  profit=338  at 0.00154583s
+    v=5  profit=342  at 0.00164647s
+    v=5  profit=373  at 0.00177631s
+    v=5  profit=380  at 0.0022537s
+    v=5  profit=381  at 0.00966948s
+    v=5  profit=383  at 0.00970689s
+    v=5  profit=396  at 0.0104127s
+    v=5  profit=403  at 0.0104412s
+    v=5  profit=409  at 0.0104745s
+    v=5  profit=413  at 0.0138586s
+    v=5  profit=417  at 0.0138601s
+    v=5  profit=424  at 0.0146874s
+    v=5  profit=426  at 0.0162388s
+    v=5  profit=433  at 0.0166866s
+    v=5  profit=446  at 0.0309434s
+    v=5  profit=476  at 0.101009s
+    v=5  profit=486  at 0.11801s
+    v=5  profit=488  at 0.215244s
+    v=5  profit=498  at 0.541391s
+    v=5  profit=502  at 0.768896s
+    v=5  profit=508  at 0.859668s
+    v=5  profit=509  at 1.02189s
+    v=5  profit=523  at 1.39897s
+    v=5  profit=527  at 1.39898s
+    v=5  profit=530  at 2.10485s
+    v=5  profit=536  at 2.12879s
+    v=5  profit=554  at 2.25301s
+    v=5  profit=557  at 4.35903s
+
+=== Rank 6 ===
+  I/O time        : 0.0234845 s
+  Win setup time  : 0.0036137 s
+  Compute time    : 7.88373 s
+  RMA cleanup time: 4.12688 s
+  Barrier wait    : 3.053e-05 s
+  Comm time       : 0.000116211 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 2642281
+  localMaxProfit  : 569
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=6  deg=306  time=7.88257s  calls=2642281  profit 0->569
+    v=22  deg=312  time=3.883e-06s  calls=0  profit 650->650
+    v=54  deg=303  time=3.868e-06s  calls=0  profit 650->650
+    v=118  deg=301  time=3.498e-06s  calls=0  profit 650->650
+    v=150  deg=315  time=3.362e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=6  profit=78  at 0.00125637s
+    v=6  profit=84  at 0.00134295s
+    v=6  profit=112  at 0.00138461s
+    v=6  profit=117  at 0.00140475s
+    v=6  profit=169  at 0.0014151s
+    v=6  profit=180  at 0.00142051s
+    v=6  profit=201  at 0.00142378s
+    v=6  profit=210  at 0.00142574s
+    v=6  profit=270  at 0.00142688s
+    v=6  profit=273  at 0.00142845s
+    v=6  profit=293  at 0.00143285s
+    v=6  profit=295  at 0.00143762s
+    v=6  profit=320  at 0.00144764s
+    v=6  profit=335  at 0.00147311s
+    v=6  profit=340  at 0.00147591s
+    v=6  profit=341  at 0.00162378s
+    v=6  profit=348  at 0.00167381s
+    v=6  profit=356  at 0.00167487s
+    v=6  profit=360  at 0.00168604s
+    v=6  profit=367  at 0.00188384s
+    v=6  profit=379  at 0.00198321s
+    v=6  profit=392  at 0.00201635s
+    v=6  profit=399  at 0.00201993s
+    v=6  profit=421  at 0.00202248s
+    v=6  profit=422  at 0.0020342s
+    v=6  profit=423  at 0.00221549s
+    v=6  profit=431  at 0.00225143s
+    v=6  profit=436  at 0.00233987s
+    v=6  profit=451  at 0.00854445s
+    v=6  profit=457  at 0.0092505s
+    v=6  profit=475  at 0.0253478s
+    v=6  profit=481  at 0.04473s
+    v=6  profit=490  at 0.0560767s
+    v=6  profit=493  at 0.0617185s
+    v=6  profit=496  at 0.0763197s
+    v=6  profit=497  at 0.0777578s
+    v=6  profit=509  at 0.0856357s
+    v=6  profit=510  at 0.0857593s
+    v=6  profit=516  at 0.086203s
+    v=6  profit=530  at 0.206607s
+    v=6  profit=532  at 0.207064s
+    v=6  profit=545  at 0.275415s
+    v=6  profit=551  at 0.85413s
+    v=6  profit=554  at 1.97936s
+    v=6  profit=555  at 1.97937s
+    v=6  profit=557  at 5.5981s
+    v=6  profit=561  at 6.94069s
+    v=6  profit=565  at 6.96925s
+    v=6  profit=566  at 6.98087s
+    v=6  profit=569  at 7.06687s
+
+=== Rank 7 ===
+  I/O time        : 0.0152067 s
+  Win setup time  : 0.0119068 s
+  Compute time    : 12.0099 s
+  RMA cleanup time: 0.000613119 s
+  Barrier wait    : 7.8915e-05 s
+  Comm time       : 0.000113539 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 4135341
+  localMaxProfit  : 554
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=7  deg=310  time=12.0088s  calls=4135341  profit 0->554
+    v=23  deg=312  time=3.832e-06s  calls=0  profit 650->650
+    v=39  deg=299  time=3.562e-06s  calls=0  profit 650->650
+    v=119  deg=303  time=3.386e-06s  calls=0  profit 650->650
+    v=295  deg=303  time=3.315e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=7  profit=52  at 0.0013108s
+    v=7  profit=63  at 0.00141393s
+    v=7  profit=70  at 0.00145906s
+    v=7  profit=126  at 0.00148112s
+    v=7  profit=132  at 0.00149227s
+    v=7  profit=177  at 0.00149835s
+    v=7  profit=182  at 0.00150167s
+    v=7  profit=234  at 0.0015032s
+    v=7  profit=242  at 0.00150762s
+    v=7  profit=245  at 0.00150915s
+    v=7  profit=257  at 0.00151063s
+    v=7  profit=285  at 0.00155657s
+    v=7  profit=296  at 0.00156001s
+    v=7  profit=302  at 0.00163902s
+    v=7  profit=323  at 0.00183867s
+    v=7  profit=334  at 0.00223954s
+    v=7  profit=337  at 0.00224211s
+    v=7  profit=339  at 0.00414055s
+    v=7  profit=349  at 0.00414636s
+    v=7  profit=353  at 0.00427162s
+    v=7  profit=380  at 0.00427612s
+    v=7  profit=388  at 0.0049564s
+    v=7  profit=392  at 0.00511695s
+    v=7  profit=402  at 0.00550841s
+    v=7  profit=404  at 0.00573511s
+    v=7  profit=409  at 0.0161864s
+    v=7  profit=418  at 0.0271104s
+    v=7  profit=427  at 0.0461823s
+    v=7  profit=445  at 0.0695014s
+    v=7  profit=451  at 0.119366s
+    v=7  profit=452  at 0.125574s
+    v=7  profit=454  at 0.134187s
+    v=7  profit=460  at 0.134346s
+    v=7  profit=467  at 0.142939s
+    v=7  profit=473  at 0.189923s
+    v=7  profit=474  at 0.320098s
+    v=7  profit=483  at 0.493582s
+    v=7  profit=486  at 0.505478s
+    v=7  profit=495  at 0.990701s
+    v=7  profit=503  at 0.990704s
+    v=7  profit=522  at 1.76149s
+    v=7  profit=535  at 2.5523s
+    v=7  profit=537  at 2.84943s
+    v=7  profit=545  at 5.7877s
+    v=7  profit=554  at 8.21081s
+
+=== Rank 8 ===
+  I/O time        : 0.0116936 s
+  Win setup time  : 0.0154465 s
+  Compute time    : 7.461 s
+  RMA cleanup time: 4.54956 s
+  Barrier wait    : 4.8942e-05 s
+  Comm time       : 0.000110471 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 2418011
+  localMaxProfit  : 543
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=8  deg=303  time=7.45987s  calls=2418011  profit 0->543
+    v=456  deg=308  time=7.118e-06s  calls=0  profit 650->650
+    v=56  deg=310  time=4.012e-06s  calls=0  profit 650->650
+    v=24  deg=289  time=3.616e-06s  calls=0  profit 650->650
+    v=152  deg=300  time=3.339e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=8  profit=62  at 0.00123564s
+    v=8  profit=100  at 0.00132383s
+    v=8  profit=106  at 0.00136448s
+    v=8  profit=111  at 0.00138416s
+    v=8  profit=122  at 0.00139293s
+    v=8  profit=157  at 0.00139859s
+    v=8  profit=183  at 0.00140189s
+    v=8  profit=213  at 0.00140385s
+    v=8  profit=226  at 0.00140586s
+    v=8  profit=228  at 0.00140953s
+    v=8  profit=250  at 0.00143079s
+    v=8  profit=269  at 0.00144024s
+    v=8  profit=275  at 0.00148465s
+    v=8  profit=276  at 0.00152678s
+    v=8  profit=283  at 0.0015454s
+    v=8  profit=299  at 0.00158198s
+    v=8  profit=303  at 0.00158212s
+    v=8  profit=305  at 0.00161867s
+    v=8  profit=306  at 0.00163234s
+    v=8  profit=315  at 0.00164025s
+    v=8  profit=328  at 0.00189716s
+    v=8  profit=346  at 0.00190055s
+    v=8  profit=359  at 0.00268874s
+    v=8  profit=360  at 0.0027434s
+    v=8  profit=398  at 0.0028488s
+    v=8  profit=399  at 0.014887s
+    v=8  profit=422  at 0.0167469s
+    v=8  profit=425  at 0.0167528s
+    v=8  profit=434  at 0.0171223s
+    v=8  profit=437  at 0.0212049s
+    v=8  profit=450  at 0.0232587s
+    v=8  profit=452  at 0.0379658s
+    v=8  profit=476  at 0.0567163s
+    v=8  profit=485  at 0.0567609s
+    v=8  profit=500  at 0.186526s
+    v=8  profit=511  at 0.762256s
+    v=8  profit=514  at 1.93499s
+    v=8  profit=520  at 1.93501s
+    v=8  profit=522  at 4.15604s
+    v=8  profit=524  at 5.26445s
+    v=8  profit=532  at 5.26447s
+    v=8  profit=543  at 5.26448s
+
+=== Rank 9 ===
+  I/O time        : 0.0245095 s
+  Win setup time  : 0.00261619 s
+  Compute time    : 8.0601 s
+  RMA cleanup time: 3.95042 s
+  Barrier wait    : 8.4554e-05 s
+  Comm time       : 0.000107517 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 2931613
+  localMaxProfit  : 613
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=9  deg=294  time=8.05896s  calls=2931613  profit 0->613
+    v=25  deg=311  time=3.912e-06s  calls=0  profit 650->650
+    v=121  deg=301  time=3.559e-06s  calls=0  profit 650->650
+    v=41  deg=303  time=3.357e-06s  calls=0  profit 650->650
+    v=281  deg=299  time=3.21e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=9  profit=53  at 0.00122507s
+    v=9  profit=58  at 0.00130567s
+    v=9  profit=64  at 0.0013485s
+    v=9  profit=69  at 0.00137011s
+    v=9  profit=75  at 0.00138146s
+    v=9  profit=95  at 0.0013869s
+    v=9  profit=152  at 0.00139024s
+    v=9  profit=173  at 0.00139265s
+    v=9  profit=198  at 0.00139424s
+    v=9  profit=231  at 0.00139528s
+    v=9  profit=242  at 0.00139753s
+    v=9  profit=245  at 0.00140036s
+    v=9  profit=255  at 0.00140135s
+    v=9  profit=269  at 0.00141725s
+    v=9  profit=273  at 0.00142425s
+    v=9  profit=325  at 0.00143845s
+    v=9  profit=334  at 0.0014857s
+    v=9  profit=352  at 0.00167988s
+    v=9  profit=356  at 0.00177592s
+    v=9  profit=359  at 0.00185296s
+    v=9  profit=368  at 0.00222548s
+    v=9  profit=369  at 0.00229187s
+    v=9  profit=380  at 0.0023917s
+    v=9  profit=391  at 0.00242308s
+    v=9  profit=404  at 0.00313978s
+    v=9  profit=412  at 0.00416648s
+    v=9  profit=433  at 0.00476529s
+    v=9  profit=442  at 0.00659662s
+    v=9  profit=443  at 0.00716192s
+    v=9  profit=451  at 0.00960571s
+    v=9  profit=460  at 0.0170819s
+    v=9  profit=467  at 0.0170825s
+    v=9  profit=469  at 0.0429341s
+    v=9  profit=479  at 0.0429386s
+    v=9  profit=487  at 0.0782093s
+    v=9  profit=497  at 0.10112s
+    v=9  profit=506  at 0.127399s
+    v=9  profit=509  at 0.127402s
+    v=9  profit=525  at 0.127437s
+    v=9  profit=545  at 0.253446s
+    v=9  profit=550  at 0.270676s
+    v=9  profit=565  at 0.438073s
+    v=9  profit=571  at 1.08936s
+    v=9  profit=575  at 1.46988s
+    v=9  profit=579  at 2.10523s
+    v=9  profit=582  at 2.39211s
+    v=9  profit=583  at 3.76096s
+    v=9  profit=597  at 4.58593s
+    v=9  profit=613  at 4.62245s
+
+=== Rank 10 ===
+  I/O time        : 0.0113691 s
+  Win setup time  : 0.0157214 s
+  Compute time    : 5.94096 s
+  RMA cleanup time: 6.06966 s
+  Barrier wait    : 2.5767e-05 s
+  Comm time       : 0.000114042 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 2197737
+  localMaxProfit  : 574
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=10  deg=286  time=5.93976s  calls=2197737  profit 0->574
+    v=26  deg=308  time=6.651e-06s  calls=0  profit 574->574
+    v=42  deg=311  time=4.204e-06s  calls=0  profit 574->574
+    v=218  deg=310  time=3.375e-06s  calls=0  profit 574->574
+    v=362  deg=307  time=3.043e-06s  calls=0  profit 574->574
+  Profit improvement history:
+    v=10  profit=76  at 0.00127647s
+    v=10  profit=87  at 0.00136201s
+    v=10  profit=95  at 0.001397s
+    v=10  profit=146  at 0.00141159s
+    v=10  profit=185  at 0.00141852s
+    v=10  profit=196  at 0.00142366s
+    v=10  profit=231  at 0.00142555s
+    v=10  profit=245  at 0.00142667s
+    v=10  profit=267  at 0.00142691s
+    v=10  profit=278  at 0.00143303s
+    v=10  profit=319  at 0.0014341s
+    v=10  profit=355  at 0.00143469s
+    v=10  profit=361  at 0.00143628s
+    v=10  profit=369  at 0.00144196s
+    v=10  profit=377  at 0.00145515s
+    v=10  profit=388  at 0.00154315s
+    v=10  profit=420  at 0.00157852s
+    v=10  profit=435  at 0.00341391s
+    v=10  profit=436  at 0.0442106s
+    v=10  profit=448  at 0.0442137s
+    v=10  profit=461  at 0.0554005s
+    v=10  profit=468  at 0.0554095s
+    v=10  profit=470  at 0.0571471s
+    v=10  profit=472  at 0.0595163s
+    v=10  profit=509  at 0.0596867s
+    v=10  profit=533  at 0.155346s
+    v=10  profit=535  at 0.797368s
+    v=10  profit=547  at 1.08762s
+    v=10  profit=550  at 1.159s
+    v=10  profit=551  at 2.69661s
+    v=10  profit=554  at 2.69762s
+    v=10  profit=559  at 2.87297s
+    v=10  profit=569  at 2.88906s
+    v=10  profit=574  at 3.7265s
+
+=== Rank 11 ===
+  I/O time        : 0.0237711 s
+  Win setup time  : 0.00338886 s
+  Compute time    : 8.55963 s
+  RMA cleanup time: 3.45089 s
+  Barrier wait    : 6.0733e-05 s
+  Comm time       : 0.000111294 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 2856614
+  localMaxProfit  : 620
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=11  deg=309  time=8.5585s  calls=2856614  profit 0->620
+    v=75  deg=286  time=3.768e-06s  calls=0  profit 650->650
+    v=27  deg=311  time=3.632e-06s  calls=0  profit 650->650
+    v=123  deg=303  time=3.374e-06s  calls=0  profit 650->650
+    v=59  deg=309  time=3.206e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=11  profit=86  at 0.00122995s
+    v=11  profit=109  at 0.00130907s
+    v=11  profit=115  at 0.00134332s
+    v=11  profit=136  at 0.00136075s
+    v=11  profit=145  at 0.00136963s
+    v=11  profit=188  at 0.00137428s
+    v=11  profit=214  at 0.00137616s
+    v=11  profit=242  at 0.00137741s
+    v=11  profit=275  at 0.00137837s
+    v=11  profit=278  at 0.0013859s
+    v=11  profit=287  at 0.00140988s
+    v=11  profit=291  at 0.00143563s
+    v=11  profit=319  at 0.00143702s
+    v=11  profit=346  at 0.00143807s
+    v=11  profit=358  at 0.00149273s
+    v=11  profit=382  at 0.00167979s
+    v=11  profit=388  at 0.00176448s
+    v=11  profit=391  at 0.00178199s
+    v=11  profit=396  at 0.00178489s
+    v=11  profit=401  at 0.0018176s
+    v=11  profit=402  at 0.00197763s
+    v=11  profit=406  at 0.00213929s
+    v=11  profit=414  at 0.00237102s
+    v=11  profit=430  at 0.00253815s
+    v=11  profit=436  at 0.0086073s
+    v=11  profit=453  at 0.00953478s
+    v=11  profit=467  at 0.0171624s
+    v=11  profit=477  at 0.036156s
+    v=11  profit=499  at 0.036245s
+    v=11  profit=501  at 0.0578112s
+    v=11  profit=518  at 0.068178s
+    v=11  profit=519  at 0.0681782s
+    v=11  profit=540  at 0.102101s
+    v=11  profit=548  at 0.180491s
+    v=11  profit=549  at 0.180845s
+    v=11  profit=550  at 0.180845s
+    v=11  profit=552  at 0.184922s
+    v=11  profit=553  at 0.185763s
+    v=11  profit=568  at 0.18587s
+    v=11  profit=578  at 0.229071s
+    v=11  profit=580  at 0.302803s
+    v=11  profit=589  at 0.530076s
+    v=11  profit=598  at 2.71993s
+    v=11  profit=620  at 2.76516s
+
+=== Rank 12 ===
+  I/O time        : 0.0240771 s
+  Win setup time  : 0.00305006 s
+  Compute time    : 6.61459 s
+  RMA cleanup time: 5.39597 s
+  Barrier wait    : 5.0744e-05 s
+  Comm time       : 0.000111385 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 2400347
+  localMaxProfit  : 577
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=12  deg=283  time=6.61342s  calls=2400347  profit 0->577
+    v=28  deg=321  time=1.5403e-05s  calls=0  profit 650->650
+    v=44  deg=316  time=5.332e-06s  calls=0  profit 650->650
+    v=284  deg=305  time=4.392e-06s  calls=0  profit 650->650
+    v=124  deg=293  time=3.356e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=12  profit=47  at 0.00122564s
+    v=12  profit=75  at 0.00130606s
+    v=12  profit=127  at 0.0013429s
+    v=12  profit=134  at 0.00136063s
+    v=12  profit=157  at 0.00137132s
+    v=12  profit=160  at 0.00137742s
+    v=12  profit=181  at 0.00138111s
+    v=12  profit=239  at 0.00138354s
+    v=12  profit=246  at 0.00138512s
+    v=12  profit=281  at 0.00138647s
+    v=12  profit=324  at 0.0013874s
+    v=12  profit=334  at 0.00138831s
+    v=12  profit=353  at 0.00141648s
+    v=12  profit=395  at 0.00143785s
+    v=12  profit=399  at 0.00158657s
+    v=12  profit=404  at 0.00234024s
+    v=12  profit=411  at 0.00279073s
+    v=12  profit=416  at 0.00288192s
+    v=12  profit=424  at 0.00288522s
+    v=12  profit=426  at 0.00290073s
+    v=12  profit=459  at 0.00346797s
+    v=12  profit=466  at 0.0137831s
+    v=12  profit=479  at 0.0182169s
+    v=12  profit=490  at 0.116236s
+    v=12  profit=508  at 0.116249s
+    v=12  profit=511  at 0.137826s
+    v=12  profit=548  at 0.214081s
+    v=12  profit=555  at 1.76062s
+    v=12  profit=560  at 1.77946s
+    v=12  profit=577  at 3.88794s
+
+=== Rank 13 ===
+  I/O time        : 0.0236978 s
+  Win setup time  : 0.00346087 s
+  Compute time    : 7.63536 s
+  RMA cleanup time: 4.37517 s
+  Barrier wait    : 5.5182e-05 s
+  Comm time       : 0.000109269 s
+  Total accounted : 12.0378 s
+  Nodes assigned  : 31
+  findClique calls: 2478504
+  localMaxProfit  : 571
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=13  deg=312  time=7.63423s  calls=2478504  profit 0->571
+    v=29  deg=295  time=4.647e-06s  calls=0  profit 650->650
+    v=125  deg=311  time=3.462e-06s  calls=0  profit 650->650
+    v=109  deg=297  time=3.407e-06s  calls=0  profit 650->650
+    v=45  deg=301  time=3.374e-06s  calls=0  profit 650->650
+  Profit improvement history:
+    v=13  profit=65  at 0.00122493s
+    v=13  profit=103  at 0.00130298s
+    v=13  profit=109  at 0.00134109s
+    v=13  profit=114  at 0.00136118s
+    v=13  profit=119  at 0.00137223s
+    v=13  profit=139  at 0.00137803s
+    v=13  profit=158  at 0.00138165s
+    v=13  profit=215  at 0.00138379s
+    v=13  profit=218  at 0.00138521s
+    v=13  profit=220  at 0.00138667s
+    v=13  profit=224  at 0.00138757s
+    v=13  profit=236  at 0.00138869s
+    v=13  profit=258  at 0.00139395s
+    v=13  profit=262  at 0.00139507s
+    v=13  profit=274  at 0.0013975s
+    v=13  profit=280  at 0.00140372s
+    v=13  profit=309  at 0.00143097s
+    v=13  profit=337  at 0.00150339s
+    v=13  profit=346  at 0.00170185s
+    v=13  profit=351  at 0.00174194s
+    v=13  profit=362  at 0.00178554s
+    v=13  profit=364  at 0.00277291s
+    v=13  profit=397  at 0.00277377s
+    v=13  profit=416  at 0.00553826s
+    v=13  profit=418  at 0.0140011s
+    v=13  profit=425  at 0.0263881s
+    v=13  profit=429  at 0.0263936s
+    v=13  profit=434  at 0.0268838s
+    v=13  profit=438  at 0.02773s
+    v=13  profit=447  at 0.0610654s
+    v=13  profit=459  at 0.0622265s
+    v=13  profit=474  at 0.0629596s
+    v=13  profit=475  at 0.0821522s
+    v=13  profit=478  at 0.24153s
+    v=13  profit=483  at 0.241686s
+    v=13  profit=484  at 0.26486s
+    v=13  profit=487  at 0.416777s
+    v=13  profit=509  at 0.417587s
+    v=13  profit=520  at 0.584325s
+    v=13  profit=525  at 0.584482s
+    v=13  profit=526  at 0.585816s
+    v=13  profit=527  at 3.69589s
+    v=13  profit=540  at 3.69633s
+    v=13  profit=571  at 4.57614s
+
+=== Rank 14 ===
+  I/O time        : 0.0111449 s
+  Win setup time  : 0.0159989 s
+  Compute time    : 6.2975 s
+  RMA cleanup time: 5.71307 s
+  Barrier wait    : 2.4112e-05 s
+  Comm time       : 0.000116348 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 2201634
+  localMaxProfit  : 576
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=14  deg=291  time=6.29636s  calls=2201634  profit 0->576
+    v=30  deg=302  time=4.642e-06s  calls=0  profit 576->576
+    v=46  deg=323  time=3.561e-06s  calls=0  profit 576->576
+    v=126  deg=302  time=3.547e-06s  calls=0  profit 576->576
+    v=318  deg=297  time=3.276e-06s  calls=0  profit 576->576
+  Profit improvement history:
+    v=14  profit=61  at 0.00123528s
+    v=14  profit=72  at 0.00133298s
+    v=14  profit=78  at 0.00137501s
+    v=14  profit=134  at 0.00139872s
+    v=14  profit=140  at 0.0014112s
+    v=14  profit=191  at 0.00141818s
+    v=14  profit=211  at 0.00142163s
+    v=14  profit=256  at 0.00142417s
+    v=14  profit=306  at 0.0014257s
+    v=14  profit=307  at 0.00143772s
+    v=14  profit=333  at 0.00144053s
+    v=14  profit=339  at 0.00149088s
+    v=14  profit=342  at 0.00149488s
+    v=14  profit=344  at 0.00153308s
+    v=14  profit=355  at 0.00167521s
+    v=14  profit=356  at 0.00168907s
+    v=14  profit=358  at 0.0017593s
+    v=14  profit=375  at 0.00185345s
+    v=14  profit=383  at 0.00185454s
+    v=14  profit=393  at 0.00208048s
+    v=14  profit=413  at 0.00279026s
+    v=14  profit=421  at 0.0142951s
+    v=14  profit=425  at 0.0143705s
+    v=14  profit=426  at 0.0193419s
+    v=14  profit=432  at 0.0209723s
+    v=14  profit=448  at 0.0217068s
+    v=14  profit=450  at 0.021725s
+    v=14  profit=453  at 0.0259963s
+    v=14  profit=454  at 0.0754061s
+    v=14  profit=477  at 0.0754208s
+    v=14  profit=481  at 0.0781296s
+    v=14  profit=483  at 0.154981s
+    v=14  profit=486  at 0.299925s
+    v=14  profit=497  at 0.327799s
+    v=14  profit=510  at 0.519851s
+    v=14  profit=511  at 1.02069s
+    v=14  profit=516  at 1.50096s
+    v=14  profit=524  at 1.50756s
+    v=14  profit=537  at 1.50805s
+    v=14  profit=539  at 1.51008s
+    v=14  profit=548  at 1.62553s
+    v=14  profit=553  at 1.62553s
+    v=14  profit=558  at 1.64623s
+    v=14  profit=560  at 4.68783s
+    v=14  profit=562  at 5.61695s
+    v=14  profit=576  at 5.62992s
+
+=== Rank 15 ===
+  I/O time        : 0.0152272 s
+  Win setup time  : 0.0119316 s
+  Compute time    : 4.8985 s
+  RMA cleanup time: 7.11203 s
+  Barrier wait    : 6.0624e-05 s
+  Comm time       : 0.000113335 s
+  Total accounted : 12.0379 s
+  Nodes assigned  : 31
+  findClique calls: 1667639
+  localMaxProfit  : 546
+  Top-5 slowest vertices (id, degree, time, calls, profitBefore->After):
+    v=15  deg=294  time=4.89739s  calls=1667639  profit 0->546
+    v=31  deg=310  time=4.934e-06s  calls=0  profit 546->546
+    v=63  deg=301  time=4.076e-06s  calls=0  profit 546->546
+    v=47  deg=313  time=3.307e-06s  calls=0  profit 546->546
+    v=287  deg=308  time=3.231e-06s  calls=0  profit 546->546
+  Profit improvement history:
+    v=15  profit=67  at 0.00124631s
+    v=15  profit=105  at 0.00132981s
+    v=15  profit=128  at 0.00137141s
+    v=15  profit=134  at 0.00138834s
+    v=15  profit=144  at 0.00139806s
+    v=15  profit=202  at 0.00140375s
+    v=15  profit=209  at 0.00140736s
+    v=15  profit=260  at 0.00140981s
+    v=15  profit=271  at 0.0014725s
+    v=15  profit=272  at 0.00147734s
+    v=15  profit=296  at 0.00147786s
+    v=15  profit=315  at 0.00160612s
+    v=15  profit=344  at 0.00168999s
+    v=15  profit=346  at 0.0017004s
+    v=15  profit=348  at 0.00170752s
+    v=15  profit=349  at 0.00188832s
+    v=15  profit=361  at 0.00221697s
+    v=15  profit=381  at 0.00275997s
+    v=15  profit=383  at 0.00279787s
+    v=15  profit=386  at 0.00557122s
+    v=15  profit=388  at 0.00571735s
+    v=15  profit=410  at 0.00625281s
+    v=15  profit=424  at 0.0068462s
+    v=15  profit=426  at 0.00690091s
+    v=15  profit=435  at 0.0185946s
+    v=15  profit=442  at 0.0200967s
+    v=15  profit=449  at 0.0202147s
+    v=15  profit=451  at 0.0202841s
+    v=15  profit=466  at 0.0398722s
+    v=15  profit=482  at 0.0405969s
+    v=15  profit=496  at 0.0466245s
+    v=15  profit=500  at 0.104039s
+    v=15  profit=501  at 0.228402s
+    v=15  profit=502  at 0.293206s
+    v=15  profit=503  at 0.37309s
+    v=15  profit=514  at 0.859531s
+    v=15  profit=546  at 0.867278s
+
+MPI Time (rank 0 wall): 12.0489 seconds

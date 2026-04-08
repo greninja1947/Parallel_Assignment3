@@ -1,0 +1,43 @@
+  Correctness Analysis                                      
+                      
+  The implementation is correct per the PDF. A few things worth noting:
+                                                                                                    
+  structureBound — correct. Since candidates are sorted in decreasing profit order, the first vertex
+   assigned to each color class is always the highest-profit one in that class. So adding profit    
+  only when a new class is created correctly gives the sum of max-profit-per-class.                 
+                                                            
+  resourceBound — correct. Using ceil gives a slightly looser but still valid upper bound (ceil ≥   
+  fractional, so no valid solution gets pruned).
+                                                                                                    
+  findClique — matches the PDF algorithm exactly. Candidate intersection cand ← candidates ∩        
+  Neighbors(v) is computed from the remaining candidates after popping v, which is correct.
+                                                                                                    
+  One edge case (minor): single-vertex cliques {i} are never recorded. The outer loop does          
+  findClique(neighbors where nbr > i, profit[i], cost[i]) — if candidates is empty or the while loop
+   finds nothing, the profit of {i} alone is never saved. For a dense graph this is irrelevant      
+  (every vertex has many high-index neighbors), but it's technically a gap.
+
+  ---
+  Bottleneck: Load Imbalance
+                                                                                                    
+  Rank 7 is the critical path at 23.26s compute, while rank 8 (the fastest) does only 14.32s.
+                                                                                                    
+  The RMA cleanup time is a red herring — it's not actual cleanup work, it's waiting.               
+  MPI_Win_unlock_all is collective and blocks until all ranks exit the RMA epoch. So fast ranks sit 
+  there idle for up to 8.9s waiting for rank 7.                                                     
+                                                            
+  Root cause — cold start problem: The first vertex each rank processes starts with maxProfit ≈ 0,  
+  so the bounds prune almost nothing and the search tree is enormous. Every rank's slowest vertex is
+   its very first one:                                                                              
+                                                            
+  - Rank 7: v=7 takes 11.77s (4.1M calls), profit 0→554                                             
+  - Rank 5: v=5 takes 10.35s
+  - Rank 0: v=0 takes ~10.8s                                                                        
+                                                                                                    
+  After that first vertex sets a good global bound (~550-650), every subsequent vertex gets pruned  
+  aggressively and takes 1-3s at most. The entire parallel run is essentially dominated by these    
+  "cold" first-vertex searches.                                                                     
+                                                            
+  The round-robin distribution (i = rank, rank+size, ...) is the problem — it forces each rank to   
+  tackle one of the hardest low-index vertices with no prior global bound. There's no work stealing
+  or rebalancing. 
